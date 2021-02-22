@@ -3,11 +3,15 @@ import java.util.*;
 public class Main
 {
 	/**
-	 * Premise: In a valid statement, you won't find a ')' without already having found a (
-	 * @param args
+	 * Premise: In a valid statement, you won't find a ')' without already having found a '('
+	 * 
+	 * Given the premise, every time we find a ')' in the string, we look to see if we have a '('
+	 * on our stack. If we do, we pop it. At the end of traversal, the stack should be empty.
+	 * @param args A string in lisp (i.e, "(hello world(test))"
 	 */
 	public static void main(String args[])
 	{
+		// basic args check
 		if(args[0] == "" || args[0] == null)
 		{
 			System.exit(0);
@@ -19,28 +23,30 @@ public class Main
 		
 	}
 	
+	/**
+	 * Main function to loop through the given string, adding '(''s to the stack and popping
+	 * when a ')' is encountered
+	 * @param lispString
+	 * @throws EmptyStackException
+	 */
 	private static void stackHelper(String lispString) throws EmptyStackException
 	{
 		Stack<Character> lispStack = new Stack<Character>();
 		
 		for(char c : lispString.toCharArray())
 		{
-			System.out.println(c);
 			if(c == '(')
 			{
-				System.out.println("Pushed a " + lispStack.push(c));
+				lispStack.push(c);
 			}
 			else if(c == ')')
 			{
-				System.out.println("Found a )");
 				if(!lispStack.isEmpty())
 				{
-					if(lispStack.peek() == '(')
-					{
-						System.out.println("Popped a " + lispStack.pop());
-					}
+					lispStack.pop();
+
 				}
-				else
+				else // we found a ')' that did not have an opening '('
 				{
 					failCase();
 				}
