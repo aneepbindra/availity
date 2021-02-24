@@ -1,0 +1,1 @@
+This directory will be used to store the output files from the CSV writer. It will contain unique file names of companies as .csv files and store user datapoints 
