@@ -1,0 +1,6 @@
+There is minimal checking in the main driver program for this project. As such, it should be noted that the input files are expected to be well formatted:
+
+- As per the question, this program expects .CSV files
+- All .CSV files to be used as input should be in this folder
+- This program expects the files to be formatted as such: userID,firstName,lastName,version,insuranceCompany
+- Each entry like the above should be on a new line
