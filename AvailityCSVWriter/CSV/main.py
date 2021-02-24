@@ -85,6 +85,4 @@ for csvName in glob.glob(inputDir + '*.csv'):
                 # the company is not already in our dict, so simply add it
                 csvDict[strCompany] = [userTuple]
         
-        for key in csvDict:
-            csvDict[key] = (sortTuples(csvDict[key]))
 writeDictToOutput()
